@@ -1,0 +1,14 @@
+
+{
+  "kind": "collectionType",
+  "collectionName": "job_logs",
+  "info": {
+    "singularName": "job-log",
+    "pluralName": "job-logs",
+    "displayName": "Job Log"
+  },
+  "options": {
+    "comment": ""
+  },
+  "attributes": {}
+}

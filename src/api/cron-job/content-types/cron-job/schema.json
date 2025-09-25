@@ -1,14 +1,65 @@
-
 {
   "kind": "collectionType",
   "collectionName": "cron_jobs",
   "info": {
     "singularName": "cron-job",
     "pluralName": "cron-jobs",
-    "displayName": "Cron Job"
+    "displayName": "Cron Job",
+    "description": ""
   },
   "options": {
-    "comment": ""
+    "draftAndPublish": false
   },
-  "attributes": {}
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "schedule": {
+      "type": "string",
+      "required": true
+    },
+    "enabled": {
+      "type": "boolean",
+      "default": true
+    },
+    "lastRunAt": {
+      "type": "datetime"
+    },
+    "nextRunAt": {
+      "type": "datetime"
+    },
+    "runCount": {
+      "default": 0,
+      "type": "integer"
+    },
+    "job_logs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::job-log.job-log",
+      "mappedBy": "cron_job"
+    },
+    "IsDeleted": {
+      "type": "boolean",
+      "default": false
+    },
+    "displayName": {
+      "type": "string",
+      "required": true
+    },
+    "timeZone": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "json"
+    },
+    "options": {
+      "type": "json",
+      "required": true
+    }
+  }
 }
