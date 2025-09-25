@@ -1,14 +1,58 @@
-
 {
   "kind": "collectionType",
   "collectionName": "job_logs",
   "info": {
     "singularName": "job-log",
     "pluralName": "job-logs",
-    "displayName": "Job Log"
+    "displayName": "Job Log",
+    "description": ""
   },
   "options": {
-    "comment": ""
+    "draftAndPublish": false
   },
-  "attributes": {}
+  "attributes": {
+    "startedAt": {
+      "type": "datetime",
+      "required": true
+    },
+    "endedAt": {
+      "type": "datetime",
+      "required": false
+    },
+    "durationMs": {
+      "type": "biginteger"
+    },
+    "message": {
+      "type": "text"
+    },
+    "manualTrigger": {
+      "type": "boolean",
+      "default": false
+    },
+    "cron_job": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::cron-job.cron-job",
+      "inversedBy": "job_logs"
+    },
+    "jobStatus": {
+      "type": "enumeration",
+      "enum": [
+        "success",
+        "error",
+        "skipped",
+        "running",
+        "canceled"
+      ],
+      "default": "running",
+      "required": true
+    },
+    "executionId": {
+      "type": "uid",
+      "required": true
+    },
+    "errorStack": {
+      "type": "text"
+    }
+  }
 }
