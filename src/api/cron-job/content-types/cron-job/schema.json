@@ -1,0 +1,14 @@
+
+{
+  "kind": "collectionType",
+  "collectionName": "cron_jobs",
+  "info": {
+    "singularName": "cron-job",
+    "pluralName": "cron-jobs",
+    "displayName": "Cron Job"
+  },
+  "options": {
+    "comment": ""
+  },
+  "attributes": {}
+}
